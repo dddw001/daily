@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            数组下标判断法
+            如果数组的第 i 项在数组中出现的位置不是i，那么表示重复
+        */
+
+        function unique3(arr){
+            var aResult=[arr[0]];
+            for(var i=1;i<arr.length;i++){
+                if(arr.indexOf(arr[i])==i){
+                    aResult.push(arr[i]);
+                }
+            }
+
+            return aResult;
+        }
+
+        alert(unique3([1,2,3,3]));
+    </script>
+</body>
+</html>

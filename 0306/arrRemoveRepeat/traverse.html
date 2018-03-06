@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        遍历数组法
+        新建一个数组，遍历传入数组，值不在新数组中就加入
+        ie8以下不支持
+        */
+        function unique1(arr){
+            var newArr=[];
+
+            for(var i=0;i<arr.length;i++){
+                if(newArr.indexOf(arr[i])==-1){
+                    newArr.push(arr[i]);
+                }
+            }
+            
+            return newArr;
+        }
+
+        var arr=[1,2,2,3,5];
+        console.log(unique1(arr));
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{margin:0;}
+        .flex-container{display: -webkit-flex;display: flex;padding: 20px;
+        -webkit-justify-content: space-between;justify-content: space-between;
+        align-items: center;border: 1px solid #ccc;
+        /*如果加上width:100%，则必须加上box-sizing:border-box;*/
+        }
+        .flex-item{width: 150px;border: 1px solid red;
+        margin-bottom: 20px;}
+        .flex1{height: 120px;}
+        .flex2{height: 100px;}
+        .flex3{height: 40px;}
+        .flex4{height: 200px;border-color: blue;}   
+
+        @media (max-width:640px){
+            .flex4{order:-1;}
+            .flex-container{flex-wrap: wrap;align-items: flex-start;}
+        }     
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item flex1"></div>
+        <div class="flex-item flex2"></div>
+        <div class="flex-item flex3"></div>
+        <div class="flex-item flex4"></div>        
+    </div>
+</body>
+</html>

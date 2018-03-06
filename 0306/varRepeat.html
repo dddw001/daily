@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=100;
+        function fn(){
+            alert(a);//undefined
+            var a=200;
+            alert(a);//200
+        }
+        fn();
+        alert(a);//100
+        var a;
+        alert(a);//100
+        var a=300;
+        alert(a);//300
+    </script>
+</body>
+</html>

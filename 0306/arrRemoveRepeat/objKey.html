@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            对象键值对法
+            遍历，判断值是否为js的键，不是的话给对象新增该键并放入数组
+            判断是否为js对象键时，会自动对传入的键执行toString(),a[1] a['1']被认为一样
+            所以要用indexOf判断
+            速度最快 占内存最大
+        */
+        function unique2(arr){
+            var obj={},result=[],len=arr.length,val,type;
+            for(var i=0;i<len;i++){
+                val=arr[i];
+                type=typeof arr[i];
+
+                if(!obj[val]){
+                    obj[val]=type;
+                    result.push(val);
+                }
+                else if(obj[val].indexOf(type)<0){
+                    obj[val].push(type);
+                    result.push(val);
+                }
+            }
+
+            return result;
+        }
+
+        alert(unique2([1,2,2,3]));
+    </script>
+</body>
+</html>

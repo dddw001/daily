@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            es6的set
+
+            Array.from()用于将两类对象转化为真正的数组：类似数组的对象和可便利的对象
+            Array.from()可接受第二个参数，类似数组的map方法
+
+            扩展运算符也可以将某些数据结构转为数组
+        */
+
+        function unique5(arr){
+            return Array.from(new Set(arr));
+        }
+
+        //alert(unique5([1,2,2,3]));
+        
+        let arr=[1,2,2,3];
+        let aResult=[...new Set(arr)];
+        alert(aResult);
+    </script>
+</body>
+</html>
