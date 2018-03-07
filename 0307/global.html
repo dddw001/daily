@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var GLOBAL={};
+        GLOBAL.namespace=function(str){
+            var arr=str.split('.');
+            var o=GLOBAL;
+            var start=0;
+
+            if(arr[0]=='GLOBAL'){
+                start=1;
+            }
+            else{
+                start=0;
+            }
+            
+            for(var i=start;i<arr.length;i++){
+                o[arr[i]]=o[arr[i]]||{};      
+                o=o[arr[i]];
+            }
+        }
+
+        /*
+        *@method 功能A：实现加法运算
+        *@author 程序员甲
+        */
+        void (function(){
+            var a=1;
+            var b=2;
+            GLOBAL.namespace('A.CAT');
+            GLOBAL.namespace('A.DOG');
+            GLOBAL.A.CAT.name='mimi';
+            GLOBAL.A.DOG.name='xiaobai';
+            GLOBAL.A.CAT.move=function(){};
+            GLOBAL.A.str1=a;
+            GLOBAL.A.str2=b;
+            console.log(a+b);//3
+        })();
+
+        /*
+        *@method 功能B：实现减法运算
+        *@author 程序员乙
+        */
+        void (function(){
+            var a=2;
+            var b=1;
+            GLOBAL.namespace('B');
+            GLOBAL.B.str1=a;
+            console.log(a-b);//1
+        })();
+
+        /*
+        *@method 功能C：实现乘法运算
+        *@author 程序员丙
+        */
+        void (function(){
+            var a=GLOBAL.A.str1;
+            var b=GLOBAL.A.str2;
+            console.log(a*b);//2
+        })();
+    </script>
+</body>
+</html>

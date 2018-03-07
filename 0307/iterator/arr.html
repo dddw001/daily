@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=['a','b','c'];
+
+        //for...in循环读取键名
+        for(let x in arr){
+            console.log(typeof x);//string
+            console.log(x);//0 1 2
+        }
+        //for...of循环读取键值
+        for(let y of arr){
+            console.log(y);//a b c
+        }
+
+        //es6提供了3个新方法用来遍历数组
+        //keys()-键名 values()-键值
+        for(let index of arr.keys()){
+            console.log(typeof index);//number
+            console.log(index);//0 1 2
+        }
+        // for(let elem of arr.values()){
+        //     console.log(elem);//error
+        // }
+        for(let elem of Object.values(arr)){
+            console.log(typeof elem);//string
+            console.log(elem);//a b c
+        }
+        for(let [index,elem] of arr.entries()){
+            console.log(typeof elem);//string
+            console.log(index,elem);//0 "a"  1 "b" 2 "c"
+        }
+    </script>
+</body>
+</html>

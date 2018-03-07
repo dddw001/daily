@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        var person={name:'cook'};
+        Object.defineProperty(person,'name',{writable:false});
+        person.name='a';//Uncaught TypeError: Cannot assign to read only property 'name' of object '#<Object>'
+        Object.defineProperty(person,'name',{configurable:false});
+        delete person.name;//obj.html:16 Uncaught TypeError: Cannot delete property 'name' of #<Object>
+    </script>
+</body>
+</html>
