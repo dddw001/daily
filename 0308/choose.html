@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .box{width: 450px;margin: 0 auto;}
+        .out{width: 300px;height: 30px;line-height: 50px;padding: 10px;text-align: center;
+        border: 1px solid #ccc;border-radius: 5px;font-size: 20px;color: #f1ebe5;
+        font-weight: bold;}
+        .list,.list_hid{height: 50px;margin-top: 20px;overflow: hidden;
+        text-align: center;background-color: #ccc;border-radius: 10px;}
+        .list_hid{height: 0;}
+        ul li{float: left;list-style: none;}
+        .in{display: inline-block;width: 50px;height: 30px;line-height: 30px;cursor: pointer;
+        border-radius: 5px;margin-top: 10px;margin-right: 30px;}
+        .red{background: red;}
+        .purple{background: purple;}
+        .yellow{background: yellow;}
+        .green{background: green;}
+        .orange{background: orange;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var oBox=document.getElementById("box");
+            var oBtn=oBox.getElementsByTagName("button")[0];
+            var oOut=oBox.getElementsByTagName("input")[0];
+            var oList=oBox.getElementsByTagName("ul")[0];
+            var aIn=oList.getElementsByTagName("li");
+
+            oBtn.onclick=function(){
+                if(oList.className=="list"){
+                    oList.className="list_hid";
+                    this.innerHTML="打开我的水果篮子";
+                }
+                else{
+                    oList.className="list";
+                    this.innerHTML="合上我的水果篮子";
+                }
+            }
+
+            for(var i=0;i<aIn.length;i++){
+                aIn[i].mark=false;
+                aIn[i].onclick=function(){
+                    this.mark=!this.mark;
+                    if(this.mark){
+                        this.style.color="#ccc";
+                    }
+                    else{
+                        this.style.color="black";
+                    }
+                    fnOut();
+                }
+            }
+
+            function fnOut(){
+                var str='';
+                for(var i=0;i<aIn.length;i++){
+                    if(aIn[i].mark){
+                        str+=','+aIn[i].innerHTML;
+                    }
+                }
+                oOut.value=str.slice(1);
+                console.log(oOut.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="box">
+        <input class="out" type="text" placeholder="请挑选我要的水果" onfocus="this.blur()"/>
+        <button class="btn">合上我的水果篮子</button><br/>
+        <ul class="list">
+            <li class="in red">苹果</li>
+            <li class="in purple">葡萄</li>
+            <li class="in yellow">香蕉</li>
+            <li class="in green">青梅</li>
+            <li class="in orange">桔子</li>            
+        </ul>
+    </div>
+</body>
+</html>
