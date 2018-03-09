@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name){
+            this.getName=function(){
+                return name;
+            }
+            this.setName=function(value){
+                name=value;
+            }
+        }
+
+        var person=new Person("name1");
+        console.log(person.getName());//name1
+        person.setName("name2");
+        console.log(person.getName());//name2
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var privateVar=100;
+        (function(){
+            //私有变量和私有函数
+            var privateVar=10;
+            function privateFun(){
+                alert(privateVar);//11
+                alert(this.privateVar);//100
+                return false;
+            }
+            myObject=function(){};
+            myObject.prototype.publicMethod=function(){
+                privateVar++;
+                return privateFun();
+            }
+        })();
+        new myObject().publicMethod();
+    </script>
+</body>
+</html>
