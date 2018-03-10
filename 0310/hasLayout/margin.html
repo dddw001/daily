@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+body{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.list{
+    border: 10px solid black;
+    background-color: red;
+    /*触发hasLayout*/
+    /*float:left;*/
+    /*解决IE7-浏览器下父级边框不阻止子级上下margin 传递的bug*/
+}
+.in{
+    height: 100px;
+    width: 100px;
+    margin-top: 50px;
+    background-color: blue;
+}
+</style>
+</head>
+<body>
+<ul class="list">
+    <li class="in"></li>
+</ul>
+</body>    
+</html>

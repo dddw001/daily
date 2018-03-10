@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+body{
+    margin: 0;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    display:inline-block;
+    /*配合display:inline 触发hasLayout*/
+    /*配合display:inline 让块元素模拟inline-block*/
+    /*     float:left;
+    display:inline; */
+}
+</style>
+</head>
+<body>
+<div class="box" id="box"></div><span>测试inline-block用</span>
+</body>    
+</html>

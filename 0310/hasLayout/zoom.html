@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+    /*解决在IE7-浏览器下LI4px 空隙bug(IE7-浏览器下li有高度或宽度或 zoom:1，且仅包含内联元素，且内联元素被设置为display:block，li下会多出3px的垂直间距)*/
+body{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.list{
+    width: 200px;
+    background-color: lightgreen;
+}
+.in{
+    height: 100px;
+    background-color: lightblue;
+}
+.span{
+    display: block;
+    zoom:1;
+}
+</style>
+</head>
+<body>
+<ul class="list">
+    <li class="in">
+        <span class="span">1231</span>
+    </li>
+    <li class="in">
+        <span class="span">1232</span>
+    </li>
+</ul>
+</body>    
+</html>
