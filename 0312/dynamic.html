@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x=10;
+        function foo() {
+            var y=x+5;
+            console.log(y);
+        }
+        function bar(){
+            var x=2;
+            return foo();
+        }
+        function main(){
+            foo();//static scope:15 dynamic scope:15
+            bar();//static scope:15 dynamic:7
+            return 0;
+        }
+        main();
+        //在静态作用域中，bar 的返回值是基于函数foo 创建时x的值
+        //在动态作用域中，x的值取决于在当前作用域中的实际定义
+    </script>
+</body>
+</html>

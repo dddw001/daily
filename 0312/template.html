@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        es6的模板字符串比较好用，但是没有webpack gulp等构建工具时无法使用 es6
+        */
+
+        // var a='hi';
+        // var test=`qqq,${a}`;
+        // console.log(test);
+
+        String.prototype.render=function(context){
+            return this.replace(/{{(.*?)}}/g,(match,key)=>context[key.trim()]);
+        }
+        //console.log(String.prototype.render)
+        var str="{{name}}很厉害";
+        str=str.render({name:'js'});
+        console.log(str);//js很厉害
+    </script>
+</body>
+</html>
