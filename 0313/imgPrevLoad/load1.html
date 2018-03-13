@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{margin: 0;}
+        img{width: 100px;height: 100px;}
+        ul{margin: 0;padding: 0;list-style: none;}
+        .list li{height: 0;width: 0;}
+    </style>
+</head>
+<body>
+    <button>载入图片</button>
+    <img src="./test.jpg" alt="">
+    <ul class="list">
+        <li id="preload1"></li>
+        <li id="preload2"></li>
+        <li id="preload3"></li>
+        <li id="preload4"></li>        
+    </ul>
+
+    <script>
+        var oBtn = document.getElementsByTagName('button')[0];
+var oImg0 = document.images[0];
+var array = ["img/img1.gif","img/img2.gif","img/img3.gif","img/img4.gif"]
+var iNow = -1;
+oBtn.onclick = function(){
+    iNow++;
+    iNow = iNow%4;
+    oImg0.src = array[iNow];
+}
+function preLoadImg(){
+    preload1.style.background = "url('img/img1.gif')";
+    preload2.style.background = "url('img/img2.gif')";
+    preload3.style.background = "url('img/img3.gif')";
+    preload4.style.background = "url('img/img4.gif')";
+}
+window.onload = function(){
+    preLoadImg();    
+}
+    </script>
+</body>
+</html>
