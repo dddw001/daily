@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+         
+        .img-list{max-width: 640px;height: 170px;margin: 50px auto;padding-left: 0px;}
+        ul li{list-style: none;float: left;overflow: hidden;}
+        .zry-img{width: 155px;display: block;height: 170px;}
+        .img-1{background-image: url('./img/1.jpg');}
+        .img-2{background-image: url('./img/2.jpg');}  
+        .img-3{background-image: url('./img/3.jpg');}  
+        .img-4{background-image: url('./img/4.jpg');}            
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./move.js"></script>
+</head>
+<body>
+    <div class="box">
+        <ul class="img-list">
+            <li class="zry-img img-1"></li>
+            <li class="zry-img img-2"></li>
+            <li class="zry-img img-3"></li>
+            <li class="zry-img img-4"></li>            
+        </ul>
+    </div>
+    <script>
+        var oList=document.getElementsByClassName("img-list")[0];
+        var aImg=document.getElementsByClassName("zry-img");
+        //console.log(getStyle(aImg[0],'width'));
+        for(var i=0;i<aImg.length;i++){
+            aImg[i].index=i;
+            aImg[i].onmouseenter=function(){
+                for(var j=0;j<aImg.length;j++){
+                    if(j!=this.index){
+                        startMove(aImg[j],{width:640*0.2})
+                    }
+                }
+                startMove(aImg[this.index],{width:640*0.4})
+            } 
+        }
+        oList.onmouseleave=function(){
+            for(let i=0;i<aImg.length;i++){
+                aImg[i].index=i;
+                
+                startMove(aImg[i],{width:155})
+            }
+        }
+    </script>
+</body>
+</html>
