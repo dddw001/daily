@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,h2,h3,p{margin: 0;}
+        .show{counter-reset: c2;}
+        .show h2{counter-reset: c3 cp;counter-increment: c2;}
+        .show h3{counter-reset: cp;counter-increment: c3;text-indent: 2em;}
+        .show p{counter-increment: cp;text-indent: 4em;}
+        .show h2::before{content: counter(c2);}
+        .show h3::before{content: counter(c2) '.' counter(c3);}
+        .show p::before{content: counter(c2) '.' counter(c3) '.' counter(cp)}
+    </style>
+</head>
+<body>
+    <div class="show">
+        <h2>第一章</h2>
+        <h3>第一部分</h3>
+        <p>第一节</p>
+        <p>第二节</p>
+        <h3>第一部分</h3>
+        <p>第一节</p>
+        <p>第二节</p>
+        <h2>第二章</h2>
+        <h3>第一部分</h3>
+        <p>第一节</p>
+        <p>第二节</p>
+        <h3>第一部分</h3>
+        <p>第一节</p>
+        <p>第二节</p>
+        <h2>第三章</h2>
+        <h3>第一部分</h3>
+        <p>第一节</p>
+        <p>第二节</p>
+        <h3>第一部分</h3>
+        <p>第一节</p>
+        <p>第二节</p>
+    </div>
+</body>
+</html>

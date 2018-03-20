@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{margin: 0;}
+        .box{position: relative;margin: 30px auto;width: 300px;}
+        .box-img{position: absolute;z-index: 1;border: 5px solid gray;width: 100%;}
+        .box::before,.box::after{content: "";position: absolute;background-color: palevioletred;width: 300px;height: 200px;border: 5px solid gray;}
+        .box::before{left: -10px;top: 0;transform: rotate(-5deg);}
+        .box::after{top: 4px;left: 0;transform: rotate(4deg);}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img class="box-img" src="./dog.jpg" alt="图片叠加效果">
+    </div>
+</body>
+</html>
