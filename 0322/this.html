@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo(num){
+            console.log("foo:"+num);
+            this.count++;
+        }
+        foo.count=0;
+        for(let i=0;i<10;i++){
+            if(i>5){
+                foo(i);
+            }
+        }
+        console.log(foo.count);
+        console.log(window.count);//NaN
+        /*foo 里面的this 指 window 
+        左查询会隐式声明一个全局变量为undefined 
+        对其++运算所以为NaN*/
+    </script>
+</body>
+</html>

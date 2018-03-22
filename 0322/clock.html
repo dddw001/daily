@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clock{width: 200px;background: black;border-radius: 5%;color: white;text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <span class="hour">00</span>:
+        <span class="minute">00</span>:
+        <span class="second">00</span>
+    </div>
+    <script>
+        var totalTime=200000   
+var counter=document.getElementById('counter')
+ 
+function countTime(){
+    if(this.totalTime<0) return
+    var objTime=this.divideTime(this.totalTime)
+    var res=objTime.hours+':'+objTime.minutes+':'+objTime.seconds+':'+objTime.milliseconds/100
+    this.counter.innerHTML=res
+    this.totalTime-=100
+    setTimeout("countTime()",100)
+}
+ 
+ 
+function divideTime(totalMilliseconds){
+    var hours,minutes,seconds,milliseconds;
+    var rest
+    milliseconds=totalMilliseconds%1000
+    rest=Math.floor(totalMilliseconds/1000)
+    seconds=rest%60
+    rest=Math.floor(rest/60)
+    minutes=rest%60
+    rest=Math.floor(rest/60)
+    hours=rest%24
+    return {hours,minutes,seconds,milliseconds}
+}
+ 
+countTime()
+    </script>
+</body>
+</html>
