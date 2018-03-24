@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./iconfont.css">
+    <style>
+        body{margin: 0;}
+        img{display: block;border: none;}
+        .outer{position: relative;width: 122px;height: 122px;margin: 30px auto;overflow: hidden;border-radius: 50%;}
+        .box{position: absolute;left: 0;top: 0;width: 122px;height: 122px;background: url('./music.png');}
+        .box-in{position: absolute;right: 0;top: 0;width: 50%;height: 100%;overflow: hidden;}
+        .box-in-in{position: absolute;width: 61px;height: 100%;margin-left: -61px;background: black url('./music.png');transform-origin: right;transform: rotate(0deg);}
+        .con{position: absolute;left: 50%;top: 50%;width: 40px;height: 40px;transform: translate(-50%,-50%);color: black;text-align: center;cursor: pointer;background-color: white;border-radius: 50%;line-height: 40px;font-size: 20px;}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer">
+        <img src="./huochai.jpg" alt="match" width="122px" height="122px">
+        <div id="player" class="box">
+            <div class="box-in">
+                <div class="box-in-in"></div>
+            </div>
+            <div class="con iconfont icon-pause"></div>
+        </div>
+    </div>
+    <audio id="audio" src="./myocean.mp3"></audio>
+    <script>
+        /*
+        box-in 的backgroundColor 和overflow box-in-in的角度
+        */
+        var oPlayer=document.getElementById("player");
+        var oControl=oPlayer.getElementsByClassName("con")[0];
+        var oRotate=oPlayer.getElementsByClassName("box-in-in")[0];
+        var oHidden=oPlayer.getElementsByClassName("box-in")[0];
+        var oAudio=document.getElementById("audio");
+
+        var mark=false;//歌曲是否正在播放
+        var enter=false;//鼠标是否移入控制区
+        var timer=null;//旋转的定时器
+
+        //oRotate.style.transform = 'rotate('+ 10 + 'deg)';
+
+        oAudio.oncanplay=function(){
+            oControl.onclick = function (e) {
+                var event=e||event;
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }
+                else{
+                    event.cancelBubble=true;
+                }
+                //console.log(oControl.className.indexOf("pause"));
+                // if(oControl.className.indexOf("pause")>-1){
+                //     oControl.className="iconfont icon-start";
+                // }
+                // else{
+                //     oControl.className="iconfont icon-pause";
+                // }
+                if (!mark) {
+                    oControl.className = "con iconfont icon-start";
+                    mark = true;
+                    oAudio.play();
+                    interval(rotate,100);
+                }
+                else {
+                    oControl.className = "con iconfont icon-pause";
+                    mark = false;
+                    oAudio.pause();
+                    clearTimeout(timer);
+                }
+            }
+
+            oPlayer.onclick=function(e){
+                var event=e||event;
+                var n1=event.clientX-this.parentNode.offsetLeft;
+                var n2=event.clientY-this.parentNode.offsetTop;
+                var a=61;
+                var b = Math.sqrt(Math.pow(n1-61,2)+Math.pow(n2-61,2)); 
+                var c = Math.sqrt(Math.pow(n1-61,2)+Math.pow(n2,2));
+                var radial = Math.acos((a*a + b*b - c*c)/(2*a*b));//转的弧度
+                var result;//角度
+                if(n1>=61){//右半边
+                    result=radial*180/Math.PI;
+                }
+                else{
+                    result=360-radial*180/Math.PI;
+                }
+                if(!enter){
+                    oAudio.currentTime=oAudio.duration*result/360;
+                    rotate();
+                }
+                oControl.innerHTML=Math.floor(oAudio.currentTime/oAudio.duration*100) + '%';
+                oControl.className="con";
+                //console.log(oAudio.currentTime,oAudio.duration);
+            } 
+            //console.log(oAudio.currentTime,oAudio.duration);
+        }
+
+        function rotate(){
+            var deg = oAudio.currentTime/oAudio.duration*360;
+            //console.log(deg);
+            oRotate.style.transform = 'rotate(' + deg + 'deg)';
+            if (oAudio.currentTime / oAudio.duration <= 0.5) {
+                oHidden.style.overflow = "hidden";
+                oHidden.style.background = "transparent";
+            }
+            else {
+                oHidden.style.overflow = "visible";
+                oHidden.style.background = 'black url("./music.png") 61px 0';
+            }
+            if(!enter){
+                oControl.innerHTML=Math.floor(oAudio.currentTime/oAudio.duration*100) + '%';
+                oControl.className="con";
+            }
+        }
+        function interval(fn,t){
+            var interFn=function(){
+                timer=setTimeout(interFn,t);
+                fn();
+            }
+            timer=setTimeout(interFn,t);
+        }
+        oControl.onmouseout=function(){
+            enter=false;
+            oControl.innerHTML=Math.floor(oAudio.currentTime/oAudio.duration*100) + '%';
+            oControl.className="con";
+        }
+        oControl.onmouseenter=function(){
+            enter=true;
+            oControl.innerHTML="";
+            if(mark){
+                oControl.className="con iconfont icon-start";
+            }
+            else{
+                oControl.className="con iconfont icon-pause";
+            }
+        }
+    </script>
+</body>
+</html>
