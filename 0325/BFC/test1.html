@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html,body,div{margin: 0;padding: 0;}
+        .box{background: black;height: 100%;margin-left: 50px;}
+        .left{background: green;opacity: 0.5;width: 200px;height: 200px;float: left;}
+        .right{background: pink;width: 400px;min-height: 100px;opacity: 0.5;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <script>
+        /*
+        .left向左浮动，创建了一个BFC，脱离了原来的位置，因此.right在.box的左上角
+        .box没有创建 BFc，因此在计算高度时，没有考虑.left，即BFC的第6个特性：浮动区域不叠加到BFC上
+        */
+    </script>
+</body>
+</html>

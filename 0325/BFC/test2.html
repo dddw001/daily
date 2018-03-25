@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html,body,div{margin: 0;padding: 0;}
+        .box{background: black;height: 100%;margin-left: 50px;}
+        .left{background: green;opacity: 0.5;width: 200px;height: 200px;float: left;}
+        .right{background: pink;width: 400px;min-height: 100px;opacity: 0.5;}
+        .BFC{overflow: hidden;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box BFC">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <script>
+        /*
+        .box因为设置了overflow:hidden，所以也变成了个BFC，高度发生了变化，计算高度时把.left也加入了进去
+        */
+    </script>
+</body>
+</html>

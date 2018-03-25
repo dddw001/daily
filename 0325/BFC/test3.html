@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html,body,div{margin: 0;padding: 0;}
+        .box{background: black;height: 100%;margin-left: 50px;}
+        .left{background: green;opacity: 0.5;width: 200px;height: 200px;float: left;}
+        .right{background: pink;width: 400px;min-height: 100px;opacity: 0.5;}
+        .BFC{overflow: hidden;}
+        .little{background: white;width: 50px;height: 50px;margin: 10px;float: left;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box BFC">
+        <div class="left"></div>
+        <div class="right">
+            <div class="little"></div>
+            <div class="little"></div>
+            <div class="little"></div>
+        </div>
+    </div>
+    <script>
+        /*
+        因为.right没有创建BFC，所以里面的小白块被.left挤到了右边
+        */
+    </script>
+</body>
+</html>
