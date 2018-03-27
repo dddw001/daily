@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时</title>
+    <style>
+        #box {
+            background-color: black;
+            border-radius: 5px;
+            padding: 5px 10px;
+            display: flex;
+            -webkit-display: flex;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            width: 240px;
+            height: 40px;
+            box-sizing: border-box;
+        }
+
+        #box span,
+        #box div {
+            width: 20%;
+            text-align: center;
+        }
+
+        #box div {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        #item1,
+        #item2 {
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <span id="day"></span> :
+        <span id="hour"></span> :
+        <span id="minute"></span> :
+        <div id="second">
+            <span id="item1"></span>
+            <span id="item2"></span>
+        </div>
+    </div>
+
+    <script> 
+    var timer; 
+    var date = new Date('3/30/2018'); 
+    function move() { 
+        var now = new Date(); 
+        var count = date - now; 
+        //console.log(count); 
+        if (count <= 0) { 
+            timer = null; 
+        } 
+        var time = calculate(count); 
+        //console.log(time); 
+        document.getElementById('day').innerHTML = (time.day < 10) ? ('0' + time.day) : time.day; 
+        document.getElementById('hour').innerHTML = (time.hour < 10) ? ('0' + time.hour) : time.hour; 
+        document.getElementById('minute').innerHTML = (time.minute < 10) ? ('0' + time.minute) : time.minute; 
+        var item1 = document.getElementById('item1'); 
+        var item2 = document.getElementById('item2'); 
+        item1.innerHTML = time.second + 1; 
+        item2.innerHTML = time.second; 
+        item2.style.top = (Math.floor(time.ms / 100) * 3) + 'px'; 
+        item1.style.top = (Math.floor(time.ms / 100) * 3 - 30) + 'px'; 
+        timer = setTimeout(move, 100); 
+    } 
+        function calculate(count) {
+            var result = {
+                day: 0, hour: 0, minute: 0, second: 0, ms: 0
+            }; 
+            result.ms = count % 1000; 
+            count = (count - result.ms) / 1000; 
+            if (!count) { return result; }
+            result.second = count % 60; 
+            count = (count - result.second) / 60; 
+            if (!count) { return result; }
+            result.minute = count % 60; 
+            count = (count - result.minute) / 60; 
+            if (!count) { return result; }
+            result.hour = count % 24; 
+            count = (count - result.hour) / 24; 
+            result.day = count; return result;
+        }
+    move(); 
+    </script>
+</body>
+
+</html>
