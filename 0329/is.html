@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(Object.is("a","a"));//true
+        
+        var obj1={a:1,b:2};
+        var obj2={b:2,a:1};
+        var obj3={a:1,b:2};
+        console.log(Object.is(obj1,obj2));//false
+        console.log(Object.is(obj1,obj3));//false
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+    margin: 0;
+    font: 16px/20px "宋体";
+}
+.box{
+    width: 600px;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    border: 1px solid black;
+    text-align: center;
+}
+.box label{
+    position:relative;
+    padding-left: 20px;
+}
+.box input{
+    visibility: hidden;
+}    
+.box i{
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    height: 19px;
+    width: 19px;
+    background: url('http://sandbox.runjs.cn/uploads/rs/26/ddzmgynp/checkbox.gif') no-repeat -14px -18px;
+}
+.box label:hover{
+    color: red;
+}
+.box label:hover i{
+    background-position: -14px -118px;
+}
+.box label.selected i{
+    background-position: -14px -218px;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" id="box">
+        选择日常手机交易方式(可多选)：
+        <label for="a">
+            <i></i>支付宝</label>
+        <input id="a" type="radio" value="支付宝">
+        <label for="t">
+            <i></i>微信</label>
+        <input id="t" type="radio" value="微信">
+        <label for="b">
+            <i></i>百度钱包</label>
+        <input id="b" type="radio" value="百度钱包">
+    </div>
+    <script>
+        var oBox = document.getElementById('box');
+        var aLabel = oBox.getElementsByTagName('label');
+        for (var i = 0, leni = aLabel.length; i < leni; i++) {
+            aLabel[i].onclick = function () {
+                if (!this.className) {
+                    this.className = 'selected';
+                } else {
+                    this.removeAttribute('class');
+                }
+            }
+        }
+</script>
+</body>
+</html>
