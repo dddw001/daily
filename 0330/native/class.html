@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(Object.prototype.toString.call([1,2,3]));//[object Array]
+        console.log(Object.prototype.toString.call(/a/i));//[object RegExp]
+        console.log(Object.prototype.toString.call(null));//[object Null]
+        console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+        console.log(Object.prototype.toString.call('abc'));//[object String]
+        console.log(Object.prototype.toString.call(12));//[object Number]
+        console.log(Object.prototype.toString.call(true));//[object Boolean]      
+    </script>
+</body>
+</html>

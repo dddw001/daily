@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=new Boolean(false);
+        if(a){
+            console.log('true');//true
+        }
+        var b=new Boolean(null);
+        console.log(b);//Boolean{false}
+        var c=new Boolean(undefined);
+        console.log(c);//Boolean{false}
+        if(b){
+            console.log('true');//true
+        }
+        if(c){
+            console.log('true');//true
+        }
+    </script>
+</body>
+</html>
