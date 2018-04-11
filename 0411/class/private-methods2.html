@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const bar=Symbol('bar');
+        const sand=Symbol('sand');
+        class Point{
+            //公有方法
+            foo(baz){
+                this[bar](baz);
+            }
+            //私有方法
+            [bar](baz){
+                return this[sand]=baz;
+            }
+        }
+    </script>
+</body>
+</html>

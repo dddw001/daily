@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(true.toString());//'true'
+        console.log(Boolean.toString());//'function Boolean() { [native code] }'
+
+        console.log('abc'.toString());//'abc'
+        console.log(String.toString());//'function String() { [native code] }'
+
+        console.log(Number.toString());//'function Number() { [native code] }'
+        console.log(1.2.toString());//'1.2'
+        console.log(NaN.toString());//'NaN'
+        console.log(Infinity.toString());//'Infinity'
+        console.log(+1.2.toString(),typeof +1.2.toString());//1.2 "number"
+        console.log(-1.2.toString(),typeof -1.2.toString());//-1.2 "number"
+        //console.log(1.toString());//报错
+        console.log((1).toString());//"1"
+        console.log((9).toString(8));//"11"
+
+        console.log({}.toString());//'[object Object]'
+        console.log(({}).toString());//'[object Object]'
+        console.log({a:123}.toString());//'[object Object]'
+        console.log(Object.toString());//'unction Object() { [native code] }'
+        function Fn(){}
+        var obj=new Fn();
+        console.log(obj.toString());//'[object Object]'
+
+        console.log(Fn.toString());//'function Fn(){}'
+        console.log(Function.toString());//'function Function() { [native code] }'
+
+        console.log([].toString());//''
+        console.log([1,2,3].toString());//'1,2,3'
+        console.log(Array.toString());//'function Array() { [native code] }'
+
+        console.log(new Date().toString());//'Wed Apr 11 2018 12:44:27 GMT+0800 (中国标准时间)'
+        console.log(Date.toString());//'function Date() { [native code] }'
+
+        console.log(Error.toString());//'function Error() { [native code] }'
+        console.log(TypeError.toString());//'function TypeError() { [native code] }'
+    </script>
+</body>
+</html>

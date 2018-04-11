@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(true.valueOf());//true
+        console.log(Boolean.valueOf());//ƒ Boolean() { [native code] }
+
+        console.log('abc'.valueOf());//'abc'
+        console.log(String.valueOf());//ƒ String() { [native code] }
+
+        console.log((0).valueOf());//0
+        console.log((-0).valueOf());//-0
+
+        console.log(+1.2.valueOf());//1.2
+        console.log(-1.2.valueOf());//-1.2
+
+        console.log({}.valueOf());//{}
+        console.log({a:123}.valueOf());//{a: 123}
+        console.log(Object.valueOf());//ƒ Object() { [native code] }
+        function Person(){this.name='cdx'}
+        var p1=new Person();
+        console.log(p1.valueOf());//Person {name: "cdx"}
+
+        console.log(Person.valueOf());//ƒ Person(){this.name='cdx'}
+
+        console.log([].valueOf());//[]
+        console.log([1,2,3].valueOf());//(3) [1, 2, 3]
+        console.log(Array.valueOf());//ƒ Array() { [native code] }
+
+        console.log(new Date().valueOf());//1523423207114
+        console.log(Date.valueOf());//ƒ Date() { [native code] }
+
+        console.log(Error.valueOf());//ƒ Error() { [native code] }
+        console.log(TypeError.valueOf());//ƒ TypeError() { [native code] }
+    </script>
+</body>
+</html>
