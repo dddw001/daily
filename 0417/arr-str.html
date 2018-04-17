@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3];
+        var str='abc';
+        //console.log(str[0]);//a
+        //console.log(arr[0]);//1
+
+        //console.log(str.split());//["abc"]
+        //console.log(arr.join());//1,2,3
+
+        //console.log(arr.concat([4]));//[1, 2, 3, 4]
+        //console.log(str.concat("d"));//abcd
+
+        //console.log(arr.slice(1));// [2, 3]
+        //console.log(str.slice(1));//bc
+
+        //console.log(str.indexOf('a'),str.lastIndexOf('a'));//0 0
+        //console.log(arr.indexOf(2),arr.lastIndexOf(2));//1 1
+
+        console.log(Array.prototype.reverse.apply(str.split("")));// ["c", "b", "a"]
+    </script>
+</body>
+</html>

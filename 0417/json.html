@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <ul id="news">
+            <li>
+                <h2>111</h2>
+                <p></p>
+            </li>
+            <li>
+                <h2></h2>
+                <p></p>
+            </li>
+            <li>
+                <h2></h2>
+                <p></p>
+            </li>
+            <li>
+                <h2></h2>
+                <p></p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var news=[
+            {title:'第一条新闻',content:'第一条新闻的内容'},
+            {title:'第二条新闻',content:'第二条新闻的内容'},
+            {title:'第三条新闻',content:'第三条新闻的内容'},
+            {title:'第四条新闻',content:'第四条新闻的内容'}
+        ];
+        var oNew=document.getElementById('news');
+        var aNews=oNew.getElementsByTagName('li');
+        console.log(aNews[0]);
+        for(let i=0;i<aNews.length;i++){
+            aNews[i].getElementsByTagName('h2')[0].innerHTML=news[i].title;
+            aNews[i].getElementsByTagName('p')[0].innerHTML=news[i].content;
+        }
+    </script>
+</body>
+</html>
