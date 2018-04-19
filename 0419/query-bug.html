@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" id="test">
+        <p>
+            <span>aaaaaa</span>
+        </p>
+        <span>bbbb</span>
+    </div>
+    <script>
+        // var oBox=document.querySelector(".box");
+        // var aSpan=oBox.querySelectorAll('div span');
+        // console.log(aSpan);//NodeList(2) [span, span]
+
+        var span=null;
+        var selector="div span";
+        var content=document.querySelector("#test");
+        var oldContent=content;
+        oldId=content.getAttribute("id");
+        newId=oldId||'__sizzle__';
+        try{
+            span=content.querySelectorAll("#"+newId+" "+selector);
+        }
+        catch(e){
+
+        }
+        finally{
+            if(!oldId){
+                oldContent.removeAttribute("id");
+            }
+        }
+        console.log(span);//NodeList(0)
+    </script>
+</body>
+</html>
