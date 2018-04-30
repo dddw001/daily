@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./zepto.min.js"></script>
+    <style>
+        .box{width: 200px;height: 100px;background: red;margin: 0 auto;}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        $('.box').swipe(function(){
+            console.log('swipe');
+        })
+        // $('.box').tap(function(){
+        //     console.log('tap');
+        // })
+        $('.box').swipeLeft(function(){
+            console.log('left');
+        })
+        $('.box').swipeRight(function(){
+            console.log('right');
+        })
+        $('.box').swipeUp(function(){
+            console.log('up');
+        })
+        $('.box').swipeDown(function(){
+            console.log('down');
+        })
+        function fn(){
+            console.log('tap');
+        }
+        $('.box').tap(fn);
+    </script>
+</body>
+</html>
