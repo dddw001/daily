@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isObjectValueEqual(a, b) {
+            var aProps = Object.getOwnPropertyNames(a);
+            var bProps = Object.getOwnPropertyNames(b);
+            // If number of properties is different,
+            // objects are not equivalent
+            if (aProps.length != bProps.length) {
+                return false;
+            }
+            for (var i = 0; i < aProps.length; i++) {
+                var propName = aProps[i];
+                // If values of same property are not equal,
+                // objects are not equivalent
+                if (a[propName] !== b[propName]) {
+                    return false;
+                }
+            }
+            // If we made it this far, objects
+            // are considered equivalent
+            return true;
+        }
+        var obj1 = {name: "Benjamin",sex : "male"};
+        var obj2 = {name: "Benjamin",sex : "male"};
+        console.log(isObjectValueEqual(obj1, obj2));//true
+
+    </script>
+</body>
+</html>
