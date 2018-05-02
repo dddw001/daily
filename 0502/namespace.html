@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var GLOBAL={};
+        GLOBAL.namespace=function(str){
+            var arr=str.split('.');
+            var o=GLOBAL;
+            var start=0;
+
+            if(arr[0]=='GLOBAL'){
+                start=1;
+            }
+            else{
+                start=0;
+            }
+
+            for(var i=start;i<arr.length;i++){
+                o[arr[i]]=o[arr[i]]||{};      
+                o=o[arr[i]];
+            }
+        }
+        
+        void(function(){
+            GLOBAL.namespace('A');
+            GLOBAL.namespace('B');
+            GLOBAL.A.str=1;
+            GLOBAL.B.str=2;
+            console.log(GLOBAL.A.str+GLOBAL.B.str);//3
+        })();
+    </script>
+</body>
+</html>

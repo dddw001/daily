@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,li{list-style: none;padding-left: 0;}
+        .box{width: 300px;}
+        .box .title{letter-spacing: -8px;margin-bottom: 0;}
+        .box .title li{display: inline-block;width: 100px;box-sizing: border-box;letter-spacing: normal;}
+        .box .active{border: 1px solid red;border-bottom: none;background: white;}
+        .box .content{width: 300px;height: 200px;border: 1px solid red;margin-top:-1px;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="title">
+            <li class="active">房产</li>
+            <li>家居</li>
+            <li>二手房</li>
+        </ul>
+        <ul class="content">
+            <li>
+                <div>内容1</div>
+            </li>
+            <li style="display:none;">
+                 <div>内容2</div>
+            </li>
+            <li style="display:none;">
+                <div>内容3</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

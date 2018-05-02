@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3];
+        for(let x of arr.keys()){
+            console.log(typeof x);//number
+        }
+        for(let index of Object.keys(arr)){
+            console.log(typeof index);//string
+        }
+    </script>
+</body>
+</html>
