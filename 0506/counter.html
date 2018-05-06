@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    dl{counter-reset: term 0;}
+    dt::before{counter-reset: definition 0;counter-increment: term;content: counter(term) '.';}
+  </style>
+</head>
+<body>
+  <dl>
+　　<dt>term1</dt>
+　　<dd>term1-definition1</dd>
+　　<dd>term1-definition2</dd>
+　　<dd>term1-definition3</dd>
+　　<dt>term2</dt>
+　　<dd>term2-definition1</dd>
+　　<dd>term2-definition2</dd>
+　　<dd>term2-definition3</dd>
+　　<dt>term3</dt>
+　　<dd>term3-definition1</dd>
+　　<dd>term3-definition2</dd>
+　　<dd>term3-definition3</dd>
+</dl>
+</body>
+</html>

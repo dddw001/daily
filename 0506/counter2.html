@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .reset{padding-left: 20px;counter-reset: son;}
+    .counter:before{content: counters(son, '*') '-';counter-increment: son;}
+  </style>
+</head>
+<body>
+    <div class="reset">
+        <div class="counter">我是大儿子
+            <div class="reset">
+                <div class="counter">我是大儿子的大孙子</div>
+                <div class="counter">我是大儿子的二孙子
+                    <div class="reset">
+                        <div class="counter">我是大儿子的二孙子的大重孙</div>
+                        <div class="counter">我是大儿子的二孙子的二重孙</div>
+                        <div class="counter">我是大儿子的二孙子的三重孙</div>
+                    </div>
+                </div>
+                <div class="counter">我是大儿子的三孙子</div>
+            </div>
+        </div>
+        <div class="counter">我是二儿子</div>
+        <div class="counter">我是三儿子</div>
+    </div>
+</body>
+</html>
