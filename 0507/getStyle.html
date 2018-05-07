@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    p{color: cyan;font-size: 20px;}
+  </style>
+</head>
+<body>
+  <p style="color:red;">你好</p>
+  <script>
+    var p=document.getElementsByTagName('p')[0];
+    console.log(p.style.color);//red
+    if(p.currentStyle){
+      console.log(p.currentStyle['font-size']);
+    }
+    else{
+      console.log(getComputedStyle(p,false)['font-size']);//20px
+    }
+  </script>
+</body>
+</html>
