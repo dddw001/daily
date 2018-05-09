@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var map=new Map();
+    map.set('first','hello');
+    map.set('second','world');
+    //获取键名
+    for(let [key] of map){
+      console.log(key);
+    }
+    //获取键值
+    for(let [,value] of map){
+      console.log(value);
+    }
+  </script>
+</body>
+</html>
