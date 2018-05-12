@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>div
+    <p>p <span>span</span></p>
+    <p>p</p>
+  </div>
+  <script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    var nodes=[];
+    //深度优先遍历的递归写法
+    function deepTraversal(node){
+      if(node!=null){
+        console.log(node);
+        nodes.push(node);
+        var children=node.children;
+        for(let i=0;i<children.length;i++){
+          deepTraversal(children[i]);
+        }
+      }
+    }
+    deepTraversal(oDiv);
+    console.log(nodes);
+  </script>
+</body>
+</html>
