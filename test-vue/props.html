@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    number:<counter :count="count"></counter>
+    <div>count:{{count}}</div>
+  </div>
+  <script>
+    var counter={
+      props:['count'],
+      data(){
+        return {
+          number:this.count
+        }
+      },
+      template:"<div @click='handleClick'>{{number}}</div>",
+      methods:{
+        handleClick(){
+          this.number++;
+          console.log(this.number);
+        }
+      }
+    }
+    var app=new Vue({
+      el:'#app',
+      data:{
+        count:0
+      },
+      components:{counter}
+    })
+  </script>
+</body>
+</html>

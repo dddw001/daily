@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="inputValue"/>
+    <button @click="addItem">提交</button>
+    <ul>
+      <todo-item :content="item" v-for="(item,index) in list" :key="index" @delete="deleteItem(index)">{{item}}</todo-item>
+    </ul>
+  </div>
+  <script>
+    //全局组件 
+    Vue.component('TodoItem',{
+      props:['content'],
+      template: '<li @click="clickItem">{{content}}</li>',
+      methods:{
+        clickItem(){
+          this.$emit('delete')
+        }
+      }
+    })
+    var app=new Vue({
+      el: '#app',
+      data(){
+        return{
+          list: [],
+          inputValue:''
+        }
+      },
+      methods:{
+        addItem(){
+          this.list.push(this.inputValue);
+          this.inputValue='';
+        },
+        deleteItem(index){
+          this.list.splice(index,1);
+        }
+      }
+    })
+  </script>
+</body>
+</html>
