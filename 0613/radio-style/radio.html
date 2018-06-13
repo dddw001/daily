@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .radio-name{
+      vertical-align: middle;
+    }
+    .radio-beauty{
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+      border: 1px solid green;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+    .radio-beauty:hover{
+      box-shadow: 0 0 7px green;
+      background-color: green;
+      background-clip: content-box;
+    }
+    input[type="radio"]:checked+.radio-beauty{
+      background: green;
+      background-clip: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <label>
+      <span class="radio-name">前端工程师</span>
+      <input type="radio" name="radioName" id="radio1" hidden/>
+      <label for="radio1" class="radio-beauty"></label>
+    </label>
+    <label>
+        <span class="radio-name">后端工程师</span>
+        <input type="radio" name="radioName" id="radio2" hidden/>
+        <label for="radio2" class="radio-beauty"></label>
+      </label>
+      <label>
+          <span class="radio-name">全栈工程师</span>
+          <input type="radio" name="radioName" id="radio3" hidden/>
+          <label for="radio3" class="radio-beauty"></label>
+        </label>
+  </div>
+</body>
+</html>
