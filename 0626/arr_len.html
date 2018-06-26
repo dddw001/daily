@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //求数组最大连续长度
+    var arr=[1,2,4,5,6,9,10,11];
+    function countLen(arr){
+      //如果不是数组或者长度为0，直接返回0
+      if(arr.constructor!=Array||arr.length==0){
+        return 0;
+      }
+      //当前连续长度、最大连续长度
+      var nowLen=1,maxLen=0;
+
+      for(var i=1,len=arr.length;i<len;i++){
+        //如果是连续的
+        if(arr[i]-arr[i-1]==1){
+          nowLen++;
+        }
+        //如果不是连续的
+        else{
+          if(maxLen<nowLen){
+            maxLen=nowLen;
+          }
+          nowLen=1;
+        }
+      }
+      //避免最大连续长度是数组最后几个数
+      if(maxLen<nowLen){
+        maxLen=nowLen;
+      }
+
+      return maxLen;
+    }
+  </script>
+</body>
+</html>

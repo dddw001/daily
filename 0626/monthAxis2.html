@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*时间坐标轴 选择的月份在中间*/
+    var _date1 = [],_date2=[],
+      dateData = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+    var dateDataRet=Object.assign([],dateData).reverse();
+    var yearText=new Date().getFullYear();
+
+    var month=1;
+    for(let i=0;i<5;i++){
+      //当前月份及后面2个月
+      if(i<3){
+        //如果超过了12月，年份加1，月数小
+        if(month+i>11){
+          _date1.push(yearText+1+'年'+dateData[Math.abs(month+i-12)]);
+        }
+        else{
+          _date1.push(yearText+'年'+dateData[month+i]);
+        }
+      }
+      //当前月份前面的2给月
+      else{
+        //如果月数小于0，年份减一，月份大
+        if(month-i+2<0){
+          _date2.push(yearText-1+'年'+dateDataRet[Math.abs(month-i+3)])
+        }
+        else{
+          _date2.push(yearText+'年'+dateData[month-i+2]);
+        }
+        
+      }
+    }
+    
+    var result=_date2.reverse().concat(_date1);
+    console.log(result);
+  </script>
+</body>
+
+</html>

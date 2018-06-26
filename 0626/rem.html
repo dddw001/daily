@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html{
+      font-size: 16px;
+    }
+    div{
+      width: 5rem;
+      height: 5rem;
+      border: 0.05rem solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div>hello</div>
+  <script src="../underscore.js"></script>
+  <script>
+    void(function () {
+      //devicePixelRatio设备像素
+      var scale = 1 / devicePixelRatio;
+      //设置meta 压缩界面 模拟设备的高分辨率
+      document.querySelector('meta[name="viewport"]').setAttribute('content', 'initial-scale=' + scale +
+        ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no');
+      //节流函数  引用underscore.js库
+      var reSize = _.debounce(function () {
+        var deviceWidth = document.documentElement.clientWidth > 1300 ? 1300 : document.documentElement.clientWidth;
+        //按照640像素下字体为16px的标准，得到一个字体的缩放比例是40
+        document.documentElement.style.fontSize = (deviceWidth / 40) + 'px';
+        console.log(deviceWidth / 40);
+      }, 50);
+      
+      window.onresize=reSize;
+    })()
+  </script>
+</body>
+
+</html>

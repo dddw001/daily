@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var _date = [],
+      dateData = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+
+    //准备一个月份反转的数组
+    var dateDataRet = Object.assign([], dateData).reverse();
+
+    //获取当前年份
+    var yearText = new Date().getFullYear();
+
+    //获取当前月份  调试的时候，大家可以通过调整now调试  3月--now=2,12月now=11...
+    var now = new Date().getMonth();
+
+    //6个月份 直到当前月份  修改i的最大值可以改变月份个数
+    for (let i = 0; i < 6; i++) {
+      if (now - i < 0) {
+        //如果now-i<0，从dateDataRet里面拿数据，下标=|now-i|-1。
+        _date.push(yearText - 1 + '年' + dateDataRet[Math.abs(now - i) - 1]);
+      } else {
+        //从dateData里面拿数据，下标=now-i
+        _date.push(yearText + '年' + dateData[now - i]);
+      }
+    }
+
+    _date.reverse();
+
+    console.log(_date);
+  </script>
+</body>
+
+</html>
