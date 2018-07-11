@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul,li{
+      list-style: none;
+      padding-left: 0;
+    }
+    .title{
+      display: inline-block;
+      position: relative;
+      top: 1.5px;
+      padding: 5px 10px;
+      border: 1px solid red;
+      border-bottom: none;
+      background: #fff;
+    }
+    .content{
+      border: 1px solid red;
+      width: 200px;
+    }
+    .second{
+      position: relative;
+    }
+    .second-title{
+      position: relative;
+      display: inline-block;
+      width: 200.5px;
+    }
+    .second:hover .second-title{
+      border: 1px solid aqua;
+      border-right: none;
+      background: #fff;
+      z-index: 2;
+    }
+    .second:hover .second-content{
+      display: block;
+    }
+    .second-content{
+      display: none;
+      position: absolute;
+      left: 200px;
+      top: 0px;
+      width: 200px;
+      border: 1px solid aqua;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul>
+      <li>
+        <span class="title">中国大陆</span>
+        <ul class="content">
+          <li>全球</li>
+          <li>香港</li>
+          <li>澳门</li>
+          <li class="second">
+            <span class="second-title">二级菜单标题</span>
+            <ul class="second-content">
+              <li>二级菜单内容</li>
+              <li>二级菜单内容</li>
+              <li>二级菜单内容</li>
+              <li>二级菜单内容</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

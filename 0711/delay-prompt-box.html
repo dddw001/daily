@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .div2{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="div1">百度</div>
+  <div class="div2">https://www.baidu.com</div>
+  <script>
+    var oDiv1=document.getElementsByClassName('div1')[0];
+    var oDiv2=document.getElementsByClassName('div2')[0];
+    var timer=null;
+    
+    oDiv1.onmouseover=oDiv2.onmouseover=function(){
+      oDiv2.style.display='block';
+      clearTimeout(timer);
+    }
+    oDiv1.onmouseout=oDiv2.onmouseout=function(){
+      timer=setTimeout(function() {
+        oDiv2.style.display='none';
+      }, 300);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul li{
+      list-style: none;
+      float: left;
+    }
+    ul{padding: 0;margin: 0;display: block;}
+    .roll{
+      position: relative;
+      width: 660px;
+    }
+    .btn{
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      background: #eee;
+      opacity: 0.4;
+      text-align: center;
+      line-height: 40px;
+      color: #000;
+      font-weight: bold;
+      font-size: 20px;
+      text-decoration: none;
+      top: 50%;
+      margin-top: -20px;
+    }
+    .btn_right{
+      right: 0;
+    }
+    .wrap{
+      position: relative;
+      width: 660px;
+      height: 330px;
+      overflow: hidden;
+    }
+    .wrap ul{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    li{
+      width: 660px;
+      height: 330px;
+    }
+  </style>
+</head>
+<body>
+    <div class="roll" id="roll">
+        <a href="javascript:void(0);" class="btn btn_left">&lt;</a>
+        <a href="javascript:void(0);" class="btn btn_right">&gt;</a>
+        <div class="wrap">
+          <ul>
+            <li><a href="#"><img src="img/pic_1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/pic_2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/pic_3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/pic_4.jpg" alt=""></a></li>        
+          </ul>
+        </div>
+    </div>  
+    <script>
+      var timer=null;
+      var ispeed=-5;
+      var oRoll=document.getElementById('roll');
+      var oUl=oRoll.getElementsByTagName('ul')[0];
+      var aLi=oUl.getElementsByTagName('li');
+      var aBtn=oRoll.getElementsByClassName('btn');
+      //li的内容应该复制一倍 ul的长度在js在计算
+      oUl.innerHTML+=oUl.innerHTML;
+      oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+      oUl.style.height=aLi[0].offsetHeight+'px';
+      //向左减 向右加 到达转折点时进行判断并改变方向
+      timer=setInterval(function(){
+        //向左减 向右加
+        oUl.style.left=oUl.offsetLeft+ispeed+'px';
+        if(oUl.offsetLeft<-oUl.offsetWidth/2){
+          oUl.style.left='0px';
+        }
+        else if(oUl.offsetLeft>0){
+          oUl.style.left=-oUl.offsetWidth/2+'px';
+        }
+      },300);
+      //点击方向按钮 改变速度正负
+      aBtn[0].onmouseover=function(){
+        ispeed=-5;
+      }
+      aBtn[1].onmouseover=function(){
+        ispeed=5;
+      }
+    </script>  
+</body>
+</html>
